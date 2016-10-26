@@ -1,13 +1,14 @@
-<h1>Listing tables</h1>
+<h1>成績一覧</h1>
 
-<table>
+<table border=1>
   <tr>
-    <th>Name</th>
-    <th>Number</th>
-    <th>Kokugo</th>
-    <th>Sansu</th>
-    <th>Eigo</th>
-    <th>Mess</th>
+    <th>名前</th>
+    <th>学籍番号</th>
+    <th>合計</th>
+    <th>国語</th>
+    <th>数学</th>
+    <th>英語</th>
+    <th>コメント</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,17 +18,35 @@
   <tr>
     <td><%= table.name %></td>
     <td><%= table.number %></td>
+    <td><%= table.kokugo + table.sansu + table.eigo %></td>
     <td><%= table.kokugo %></td>
     <td><%= table.sansu %></td>
     <td><%= table.eigo %></td>
     <td><%= table.mess %></td>
-    <td><%= link_to 'Show', table %></td>
-    <td><%= link_to 'Edit', edit_table_path(table) %></td>
-    <td><%= link_to 'Destroy', table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to '詳細', table %></td>
+    <td><%= link_to '編集', edit_table_path(table) %></td>
+    <td><%= link_to '削除', table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
+<% jap = Table.average(:kokugo) %>
+<% math = Table.average(:sansu) %>
+<% eng = Table.average(:eigo) %>
+<% total = jap+math+eng %>
+
+<tr>
+  <td>平均</td>
+  <td></td>
+  <td><%= total.floor(2) %></td>
+  <td><%= jap.floor(2) %></td>
+  <td><%= math.floor(2) %></td>
+  <td><%= eng.floor(2) %></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
 </table>
 
 <br />
 
-<%= link_to 'New Table', new_table_path %>
+<%= link_to '新規作成', new_table_path %>
