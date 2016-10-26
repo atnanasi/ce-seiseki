@@ -1,9 +1,11 @@
+# coding: utf-8
 class TablesController < ApplicationController
   # GET /tables
   # GET /tables.json
   def index
     @q = Table.search(params[:q])
-    @tables = @q.result(distinct: true)
+    @utables = @q.result(distinct: true)
+    @tables = @utables.order("number")
     #@tables = Table.all
 
     respond_to do |format|
@@ -46,7 +48,7 @@ class TablesController < ApplicationController
 
     respond_to do |format|
       if @table.save
-        format.html { redirect_to @table, notice: 'Table was successfully created.' }
+        format.html { redirect_to @table, notice: "テーブルを作成しました。" }
         format.json { render json: @table, status: :created, location: @table }
       else
         format.html { render action: "new" }
@@ -62,7 +64,7 @@ class TablesController < ApplicationController
 
     respond_to do |format|
       if @table.update_attributes(params[:table])
-        format.html { redirect_to @table, notice: 'Table was successfully updated.' }
+        format.html { redirect_to @table, notice: "テーブルを更新しました。" }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

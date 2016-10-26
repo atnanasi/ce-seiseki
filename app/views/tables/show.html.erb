@@ -1,35 +1,36 @@
+<h1>詳細表示</h1>
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b>名前:</b>
   <%= @table.name %>
 </p>
 
 <p>
-  <b>Number:</b>
+  <b>学籍番号:</b>
   <%= @table.number %>
 </p>
 
 <p>
-  <b>Kokugo:</b>
+  <b>国語:</b>
   <%= @table.kokugo %>
 </p>
 
 <p>
-  <b>Sansu:</b>
+  <b>算数:</b>
   <%= @table.sansu %>
 </p>
 
 <p>
-  <b>Eigo:</b>
+  <b>英語:</b>
   <%= @table.eigo %>
 </p>
 
 <p>
-  <b>Mess:</b>
+  <b>コメント:</b>
   <%= @table.mess %>
 </p>
 
 
-<%= link_to 'Edit', edit_table_path(@table) %> |
-<%= link_to 'Back', tables_path %>
+<%= link_to '編集', edit_table_path(@table) %> |
+<%= link_to '戻る', tables_path %>
