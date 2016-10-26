@@ -1,0 +1,33 @@
+<h1>Listing tables</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Number</th>
+    <th>Kokugo</th>
+    <th>Sansu</th>
+    <th>Eigo</th>
+    <th>Mess</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tables.each do |table| %>
+  <tr>
+    <td><%= table.name %></td>
+    <td><%= table.number %></td>
+    <td><%= table.kokugo %></td>
+    <td><%= table.sansu %></td>
+    <td><%= table.eigo %></td>
+    <td><%= table.mess %></td>
+    <td><%= link_to 'Show', table %></td>
+    <td><%= link_to 'Edit', edit_table_path(table) %></td>
+    <td><%= link_to 'Destroy', table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Table', new_table_path %>

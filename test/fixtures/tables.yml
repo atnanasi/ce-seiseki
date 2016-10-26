@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  number: 1
+  kokugo: 1
+  sansu: 1
+  eigo: 1
+  mess: MyText
+
+two:
+  name: MyString
+  number: 1
+  kokugo: 1
+  sansu: 1
+  eigo: 1
+  mess: MyText
