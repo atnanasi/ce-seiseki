@@ -28,6 +28,7 @@
 
 <table border=1>
   <tr>
+    <th>ID</th>
     <th>名前</th>
     <th>学籍番号</th>
     <th>合計</th>
@@ -35,6 +36,7 @@
     <th>数学</th>
     <th>英語</th>
     <th>コメント</th>
+    <th>更新日時</th>
     <th></th>
     <th></th>
     <th></th>
@@ -42,6 +44,7 @@
 
 <% @tables.each do |table| %>
   <tr>
+    <td><%= table.id %></td>
     <td><%= table.name %></td>
     <td><%= table.number %></td>
     <td><%= table.kokugo + table.sansu + table.eigo %></td>
@@ -49,6 +52,7 @@
     <td><%= table.sansu %></td>
     <td><%= table.eigo %></td>
     <td><%= table.mess %></td>
+    <td><%= table.updated_at.strftime("%Y-%m-%d %H:%M:%S")%></td>
     <td><%= link_to '詳細', table %></td>
     <td><%= link_to '編集', edit_table_path(table) %></td>
     <td><%= link_to '削除', table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -66,6 +70,8 @@
   <td><%= jap.floor(2) %></td>
   <td><%= math.floor(2) %></td>
   <td><%= eng.floor(2) %></td>
+  <td></td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
