@@ -2,7 +2,9 @@ class TablesController < ApplicationController
   # GET /tables
   # GET /tables.json
   def index
-    @tables = Table.all
+    @q = Table.search(params[:q])
+    @tables = @q.result(distinct: true)
+    #@tables = Table.all
 
     respond_to do |format|
       format.html # index.html.erb
